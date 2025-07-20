@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gigaChat</title>
+  <link id="themeStylesheet" rel="stylesheet" href="mobile.css">
+  <link rel="icon" type="image/x-icon" href="thumbnail.png">
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
+  <script type="text/javascript" src="website2.js"></script>
+  <script src="client.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <!--//usually width= 420px
+  //usually height= 800px-->
+</head>
+
+<body>
+  <nav id="nav">
+    <section id="headsection">
+      <h1 id="gigaChat">gigaRate</h1>
+      <button id="addNewBtn" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="close.svg" alt="new"></button>
+    </section>
+    <section id="searchSection">
+      <input type="text" class="text-input" id="search-box" placeholder="Search">
+    </section>
+  </nav>
+
+  <main id="main">
+    <div id="one">
+      <h2>Leaderboard</h2>
+      <div class="leaderboard">
+        <div>1</div>
+        <div>Ute</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div>2</div>
+        <div>Michi</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div>3</div>
+        <div>Hagen</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div>4</div>
+        <div>Herr Angerer</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div>5</div>
+        <div>Frau Schneider</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div>6</div>
+        <div>Herr Appelius</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="three" id="three">
+      <h2>Ratings</h2>
+      <!--/bottom-->
+      <div class="bottomBlur"></div>
+
+      <div class="chat-con" id="chat-con">
+        <!--message-->
+        <div class="msg">
+          <div class="person">Ute</div>
+          <div class="rating">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+          </div>
+          <div class="text">Die Ute ist eine junge, attraktive Lehrerin des Karolinen Gymnasiums, die mit ihrem jungen
+            Alter punktet. Ihre Stärken sind Reiten und Unterrichten.</div>
+        </div>
+
+
+
+        <div class="msg">
+          <div class="person">Michi</div>
+          <div class="rating">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+          </div>
+            <div class="text">Michi ist ein solider Typ mit einem charmanten Lächeln, aber manchmal etwas chaotisch. Seine 3 von 5 Sternen spiegeln seine Bemühungen wider, die oft von spontanen Einfällen geprägt sind. Ein echter Sigma!</div>
+          </div>
+      </div>
+    <div class="msg">
+      <div class="person">Hagen</div>
+      <div class="rating">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      <div class="text">Hagen ist ein ruhiger und analytischer Denker, der mit seiner Gelassenheit überzeugt. Seine 4 von 5 Sternen zeigen, dass er zuverlässig und kompetent ist, aber manchmal etwas zurückhaltend.</div>
+    </div>
+
+    <div class="msg">
+      <div class="person">Herr Angerer</div>
+      <div class="rating">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      <div class="text">Herr Angerer ist ein erfahrener und geschätzter Lehrer, der mit seiner Weisheit und liebevollen Umgang mit Kindern beeindruckt. Seine 5 von 5 Sternen spiegeln seine außergewöhnliche Kompetenz wider.</div>
+    </div>
+
+    <div class="msg">
+      <div class="person">Frau Schneider</div>
+      <div class="rating">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      <div class="text">Frau Schneider ist eine freundliche, nette und hilfsbereite Person, die immer einen Scherz auf Lager hat. Sie verbreitet gute Laune, wo es nur geht, und wirkt sportlich und fit.</div>
+    </div>
+
+    <div class="msg">
+      <div class="person">Herr Appelius</div>
+      <div class="rating">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      <div class="text">Herr Appelius ist ein kreativer Kopf mit vielen innovativen Ideen. Aufgrund seines regelmäßigen Rauschgiftkonsums kann er aber sein Potenzial leider nicht ganz entfalten.</div>
+    </div>
+    </div>
+  </main>
+
+  <script>
+    const searchBox = document.getElementById('search-box');
+
+    searchBox.addEventListener('input', () => {
+      const term = searchBox.value.trim().toLowerCase();
+
+      // 1) Unwrap old highlights completely
+      document.querySelectorAll('span.highlight')
+        .forEach(span => {
+          span.outerHTML = span.textContent;
+        });
+
+      if (!term) return;
+
+      // 2) Build a safe regex (escape any special chars)
+      const safe = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${safe})`, 'gi');
+
+      // 3) Highlight in leaf nodes
+      document.querySelectorAll('body *:not(script):not(style):not(input)')
+        .forEach(el => {
+          if (el.children.length === 0) {
+            const txt = el.textContent;
+            if (txt.toLowerCase().includes(term)) {
+              el.innerHTML = txt.replace(regex, '<span class="highlight">$1</span>');
+            }
+          }
+        });
+    });
+
+  </script>
+
+
+</body>
+
+</html>
