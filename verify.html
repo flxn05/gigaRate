@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify - gigaRate</title>
+<style>
+  :root {
+  --main: hsl(0, 0%, 10%);
+  --pop: hsl(0, 0%, 25%);
+  --primary: hsl(162, 82%, 40%);
+  --secondary: hsl(162, 82%, 25%);
+  --font: hsl(0, 0%, 95%);
+  --light: hsl(0, 0%, 60%);
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+*:focus {
+  outline: none;
+}
+body {
+  background-color: var(--main);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 15vh;
+  color: var(--font);
+}
+h1 {
+  margin-bottom: 1rem;
+    background: linear-gradient(120deg, var(--primary), var(--secondary)); /* Adjust colors as desired */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin-bottom: 5rem;
+  }
+
+  #status {
+    padding-left: 5vw;
+  }
+</style>
+</head>
+<body>
+  <h1>Just a sec...</h1>
+
+  <form id="verify-form" method="POST" action="file:///home/fellix/Documents/html/giga/gigaRate/index.html">
+    <input type="hidden" name="nonce" id="nonce-field">
+    <input type="hidden" name="challenge" value="ABC123456789">
+    <input type="hidden" name="difficulty" value="4">    <!-- adjust -->
+    <div id="status"></div>
+  </form>
+
+  <script>
+    // Compute SHA-256 hash of a string and return it as hex
+    async function sha256(text) {
+      const buffer = new TextEncoder().encode(text);
+      const hash = await crypto.subtle.digest("SHA-256", buffer);
+      return Array.from(new Uint8Array(hash))
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('');
+    }
+  
+    // Proof-of-work function: find a nonce that produces a hash with `difficulty` leading zeros
+    async function findNonce(challenge, difficulty, updateStatus) {
+      const prefix = '0'.repeat(difficulty);
+      let nonce = 0;
+      while (true) {
+        const hash = await sha256(challenge + nonce);
+        if (nonce % 1000 === 0) updateStatus(`Progress: ${nonce}`);
+        if (hash.startsWith(prefix)) {
+          return nonce;
+        }
+        nonce++;
+      }
+    }
+  
+    // Starts the PoW challenge and submits the form automatically
+    async function startChallenge() {
+      const challenge = document.querySelector('input[name="challenge"]').value;
+      const difficulty = parseInt(document.querySelector('input[name="difficulty"]').value, 10);
+      const status = document.getElementById("status");
+  
+      status.textContent = "Löse Challenge...";
+  
+      try {
+        const nonce = await findNonce(challenge, difficulty, msg => status.textContent = msg);
+        status.textContent = `Erfolg! Nonce: ${nonce}`;
+        document.cookie = "verified=true; path=/; max-age=3600"; // 1 Stunde gültig
+      window.location.href = "/index.html"; // Weiterleitung zur Hauptseite
+  
+        document.getElementById("nonce-field").value = nonce;
+        document.getElementById("verify-form").submit();
+      } catch (err) {
+        status.textContent = "Fehler beim Lösen der Challenge.";
+        console.error(err);
+      }
+    }
+  
+    // Automatically start the challenge when the page is loaded
+    window.addEventListener('DOMContentLoaded', startChallenge);
+  </script>
+  
+</html>

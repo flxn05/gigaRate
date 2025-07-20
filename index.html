@@ -18,6 +18,19 @@
     rel="stylesheet">
   <!--//usually width= 420px
   //usually height= 800px-->
+
+  <script>
+    // Beim Laden der Seite prüfen: Ist der User verifiziert?
+    window.onload = function() {
+      const verified = document.cookie.includes("verified=true");
+      if (!verified) {
+        // Wenn nicht verifiziert → Weiterleitung zum Test
+        window.location.href = "verify.html";
+      }
+    };
+  </script>
+
+
 </head>
 
 <body>
