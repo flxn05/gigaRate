@@ -81,11 +81,11 @@
       const difficulty = parseInt(document.querySelector('input[name="difficulty"]').value, 10);
       const status = document.getElementById("status");
 
-      status.textContent = "Löse Challenge...";
+      status.textContent = "recognicing...";
 
       try {
         const nonce = await findNonce(challenge, difficulty, msg => status.textContent = msg);
-        status.textContent = `Erfolg! Nonce: ${nonce}`;
+        status.textContent = `Success! Nonce: ${nonce}`;
 
         // Cookie setzen → 1 Stunde gültig
         document.cookie = "verified=true; path=/; max-age=3600";
@@ -93,7 +93,7 @@
         // Weiterleitung zur Hauptseite
         window.location.href = "index.html";
       } catch (err) {
-        status.textContent = "Fehler beim Lösen der Challenge.";
+        status.textContent = "Couldn't verify. This could be a problem on our end. Try again or contact developers.";
         console.error(err);
       }
     }
