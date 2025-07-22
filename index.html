@@ -14,7 +14,7 @@
   <!--//usually width= 420px
   //usually height= 800px-->
 
-  <script>
+  <!--<script>
     // Beim Laden der Seite prüfen: Ist der User verifiziert?
     window.onload = function() {
       const verified = document.cookie.includes("verified=true");
@@ -23,7 +23,7 @@
         window.location.href = "verify.html";
       }
     };
-  </script>
+  </script>-->
 
 
 </head>
@@ -32,7 +32,8 @@
   <nav id="nav">
     <section id="headsection">
       <h1 id="gigaChat">gigaRate</h1>
-      <button id="addNewBtn" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="close.svg" alt="new"></button>
+      <button id="addNewBtn" onclick="document.getElementById('addPopup').style.display = 'grid'"><img src="close.svg"
+          alt="new"></button>
     </section>
     <section id="searchSection">
       <input type="text" class="text-input" id="search-box" placeholder="Search">
@@ -53,8 +54,10 @@
           <div class="star"></div>
         </div>
         <div>2</div>
-        <div>Michi</div>
+        <div>Herr Angerer</div>
         <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
           <div class="star"></div>
           <div class="star"></div>
           <div class="star"></div>
@@ -66,30 +69,25 @@
           <div class="star"></div>
           <div class="star"></div>
           <div class="star"></div>
+          <div class="star empty"></div>
         </div>
         <div>4</div>
-        <div>Herr Angerer</div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-        </div>
-        <div>5</div>
-        <div>Frau Schneider</div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-        </div>
-        <div>6</div>
         <div>Herr Appelius</div>
         <div class="rating">
           <div class="star"></div>
           <div class="star"></div>
           <div class="star"></div>
           <div class="star"></div>
+          <div class="star empty"></div>
+        </div>
+        <div>5</div>
+        <div>Michi</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+          <div class="star empty"></div>
         </div>
       </div>
     </div>
@@ -124,54 +122,88 @@
             <div class="star"></div>
             <div class="star"></div>
           </div>
-            <div class="text">Michi ist ein solider Typ mit einem charmanten Lächeln, aber manchmal etwas chaotisch. Seine 3 von 5 Sternen spiegeln seine Bemühungen wider, die oft von spontanen Einfällen geprägt sind. Ein echter Sigma!</div>
-          </div>
+          <div class="text">Michi ist ein solider Typ mit einem charmanten Lächeln, aber manchmal etwas chaotisch. Seine
+            3 von 5 Sternen spiegeln seine Bemühungen wider, die oft von spontanen Einfällen geprägt sind. Ein echter
+            Sigma!</div>
+        </div>
       </div>
-    <div class="msg">
-      <div class="person">Hagen</div>
-      <div class="rating">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+      <div class="msg">
+        <div class="person">Hagen</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="text">Hagen ist ein ruhiger und analytischer Denker, der mit seiner Gelassenheit überzeugt. Seine 4
+          von 5 Sternen zeigen, dass er zuverlässig und kompetent ist, aber manchmal etwas zurückhaltend.</div>
       </div>
-      <div class="text">Hagen ist ein ruhiger und analytischer Denker, der mit seiner Gelassenheit überzeugt. Seine 4 von 5 Sternen zeigen, dass er zuverlässig und kompetent ist, aber manchmal etwas zurückhaltend.</div>
-    </div>
 
-    <div class="msg">
-      <div class="person">Herr Angerer</div>
-      <div class="rating">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+      <div class="msg">
+        <div class="person">Herr Angerer</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="text">Herr Angerer ist ein erfahrener und geschätzter Lehrer, der mit seiner Weisheit und
+          liebevollen Umgang mit Kindern beeindruckt. Seine 5 von 5 Sternen spiegeln seine außergewöhnliche Kompetenz
+          wider.</div>
       </div>
-      <div class="text">Herr Angerer ist ein erfahrener und geschätzter Lehrer, der mit seiner Weisheit und liebevollen Umgang mit Kindern beeindruckt. Seine 5 von 5 Sternen spiegeln seine außergewöhnliche Kompetenz wider.</div>
-    </div>
 
-    <div class="msg">
-      <div class="person">Frau Schneider</div>
-      <div class="rating">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+      <div class="msg">
+        <div class="person">Frau Schneider</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="text">Frau Schneider ist eine freundliche, nette und hilfsbereite Person, die immer einen Scherz auf
+          Lager hat. Sie verbreitet gute Laune, wo es nur geht, und wirkt sportlich und fit.</div>
       </div>
-      <div class="text">Frau Schneider ist eine freundliche, nette und hilfsbereite Person, die immer einen Scherz auf Lager hat. Sie verbreitet gute Laune, wo es nur geht, und wirkt sportlich und fit.</div>
-    </div>
 
-    <div class="msg">
-      <div class="person">Herr Appelius</div>
-      <div class="rating">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+      <div class="msg">
+        <div class="person">Herr Appelius</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="text">Herr Appelius ist ein kreativer Kopf mit vielen innovativen Ideen. Aufgrund seines
+          regelmäßigen Rauschgiftkonsums kann er aber sein Potenzial leider nicht ganz entfalten.</div>
       </div>
-      <div class="text">Herr Appelius ist ein kreativer Kopf mit vielen innovativen Ideen. Aufgrund seines regelmäßigen Rauschgiftkonsums kann er aber sein Potenzial leider nicht ganz entfalten.</div>
-    </div>
     </div>
   </main>
+
+  <aside>
+    <div class="popup" id="addPopup">
+      <div class="wrapper">
+        <h2>Create</h2>
+
+        <div class="inputCon"><label for="target">Person:</label>
+          <input type="text" id="target" name="target">
+        </div>
+
+        <div class="starCon">
+          <div class="star empty" id="s1"></div>
+          <div class="star empty" id="s2"></div>
+          <div class="star empty" id="s3"></div>
+          <div class="star empty" id="s4"></div>
+          <div class="star empty" id="s5"></div>
+        </div>
+
+        <div class="inputCon"><input type="hidden" id="rating"></div>
+        <div>
+          <label for="descr">Description:</label><input type="text" id="descr" name="descr">
+        </div>
+        <button onclick="document.getElementById('addPopup').style.display = 'none';">Cancel</button>
+        <button>Publish</button>
+      </div>
+    </div>
+  </aside>
 
   <script>
     const searchBox = document.getElementById('search-box');
@@ -205,6 +237,33 @@
 
   </script>
 
+  <script>
+    const stars = document.querySelectorAll('.star');
+
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        // Add .filled to all stars up to the clicked one
+        stars.forEach((s, i) => {
+          if (i <= index) {
+            s.classList.add('filled');
+            s.classList.remove('empty');
+          } else {
+            s.classList.add('empty');
+            s.classList.remove('filled');
+          }
+        });
+      });
+    });
+    const ratingInput = document.getElementById('rating');
+
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        const ratingValue = index - 47; // Calculate the rating value based on the clicked star
+        ratingInput.value = ratingValue; // Update the hidden input with the rating value
+        console.log(`Rating updated to: ${ratingValue}`); // Log the change
+      });
+    });
+  </script>
 
 </body>
 

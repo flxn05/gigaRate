@@ -170,3 +170,53 @@ img {
   z-index: 3;
   background-image: linear-gradient(to top, var(--main), transparent);
 }
+#addPopup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-block: 20vh;
+  padding-inline: 12px;
+  display: none;
+  backdrop-filter: blur(15px) brightness(.9);
+}
+.empty {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  height: 13px;
+  width: 13px;
+}
+.filled {
+  background-color: var(--primary);
+  border: none;
+  height: 15px;
+  width: 15px;
+}
+.wrapper * {
+  margin-block: 1rem;
+}
+.starCon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.starCon .star {
+  margin-inline: 12px;
+  transform: scale(2);
+}
+.inputCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  margin-right: 12px;
+}
+.leaderboard .empty {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  height: 10px;
+  width: 10px;
+}
